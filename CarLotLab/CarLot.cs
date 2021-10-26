@@ -27,25 +27,91 @@ namespace CarLotLab
             }
         }
 
-        public void AddCar()
+        public bool CarLotMenu()
         {
             //Adding Cars to List: 
+           
+
+            Console.WriteLine("Welcome to Grant Chirpus' Used Car Emproium!\n");
+            Console.WriteLine("What woould you like to do 1. Add car 2. View Cars 3. Quit");
+
+            //string userSelection = Console.ReadLine();
+            //switch (userSelection)
+            //{
+            //    case "1": 
+
+            //Console.Write("\nEnter the make you would like to add: ");
+            //string make = Console.ReadLine();
+            //Console.Write("\nEnter model: ");
+            //string model = Console.ReadLine();
+            //Console.Write("\nEnter the year: ");
+            //int year = int.Parse(Console.ReadLine());
+            //Console.Write("\nEnter Price of Car: ");
+            //decimal price = Convert.ToDecimal(Console.ReadLine());
+            //List<string> carItem = new List<string>();
+
+            //        for(int i = 0; i < year; i++)
+            //        {
+
+            //        }
+
+            Console.WriteLine("WELCOME TO THE GC USED CAR EMPORIUM!");
+            Console.WriteLine("------------------------------------");
+            Console.WriteLine("[1] Add a car");
+            Console.WriteLine("[2] Remove a car");
+            Console.WriteLine("[3] List all availabe cars");
+            Console.WriteLine("[4] Quit");
+            string userMenuChoice = GetUserInput("Selection: ");
+            Console.WriteLine();
+
+                //bool userMenuChoice = true;
+
+                switch (userMenuChoice)
+                {
+                    case "1":
+                        //Call add car method
+                        AddCar();
+                        Console.WriteLine();
+                        return CarLotMenu();
+
+                    case "2":
+                        //Call Buy car method
+                        RemoveCar();
+                        Console.WriteLine();
+                        return true;
+
+                    case "3":
+                        //Call List  all cars
+                        PrintCars();
+                        Console.WriteLine();
+                        return true;
+
+
+                    case "4":
+
+                        Console.WriteLine("Return to main [y] or [n]");
+                        string userChoiceToReturn = Console.ReadLine().ToLower();
+
+                        if (userChoiceToReturn == "n")
+                        {
+                            
+                            Console.WriteLine("Thanks, Bye!");
+                           
+                        }
+                    return CarLotMenu();
+
+
+                default:
+                    Console.WriteLine("That selection was invalid. Please try again.");
+                    return CarLotMenu();
+
+
+                    //Cars.Add(new Car(model, make, year, price));
 
 
 
-            Console.Write("\nEnter the make you would like to add: ");
-            string make = Console.ReadLine();
-            Console.Write("\nEnter model: ");
-            string model = Console.ReadLine();
-            Console.Write("\nEnter the year: ");
-            int year = int.Parse(Console.ReadLine());
-            Console.Write("\nEnter Price of Car: ");
-            decimal price = Convert.ToDecimal(Console.ReadLine());
 
-
-
-
-            Cars.Add(new Car(model, make, year, price));
+            }
 
 
         }
@@ -71,6 +137,32 @@ namespace CarLotLab
 
             Cars.Remove(new Car(model, make, year, price));
         }
+
+        public void AddCar()
+        {
+            Console.Write("\nEnter the make you would like to add: ");
+            string make = Console.ReadLine();
+            Console.Write("\nEnter model: ");
+            string model = Console.ReadLine();
+            Console.Write("\nEnter the year: ");
+            int year = int.Parse(Console.ReadLine());
+            Console.Write("\nEnter Price of Car: ");
+            decimal price = Convert.ToDecimal(Console.ReadLine());
+
+            Cars.Add(new Car(model, make, year, price));
+
+        }
+
+        public string GetUserInput(string prompt)
+        {
+            Console.Write(prompt);
+            string output = Console.ReadLine().Trim().ToLower();
+            Console.WriteLine();
+
+
+            return output;
+        }
+
 
     }
 }

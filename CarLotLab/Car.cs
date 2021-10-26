@@ -28,7 +28,9 @@ namespace CarLotLab
             output += $" Year : {Year}";
             output += $" Price : {Price}\t\t";
 
-            return output; 
+            return output;
+
+            //return String.Format($"{0, -10} | {1, -15} | {2, -5} | {3, -15: C2} | { Make} { Model} { Year} { Price}"); 
         }
     }
 }
