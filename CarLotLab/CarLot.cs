@@ -75,20 +75,20 @@ namespace CarLotLab
                         return CarLotMenu();
 
                     case "2":
-                        //Call Buy car method
+                        //Call remove car method
                         RemoveCar();
                         Console.WriteLine();
-                        return true;
+                        return CarLotMenu();
 
                     case "3":
                         //Call List  all cars
                         PrintCars();
                         Console.WriteLine();
-                        return true;
+                        return CarLotMenu();
 
 
                     case "4":
-
+                        //Will take you to y/n option to continue or quit
                         Console.WriteLine("Return to main [y] or [n]");
                         string userChoiceToReturn = Console.ReadLine().ToLower();
 
@@ -127,15 +127,15 @@ namespace CarLotLab
             //Removing Car from List 
 
             Console.Write("Enter the make of the car you would like to remove: ");
-            string make = Console.ReadLine();
+            string make = Console.ReadLine().ToLower();
             Console.Write("Enter model: ");
-            string model = Console.ReadLine();
+            string model = Console.ReadLine().ToLower();
             Console.Write("Enter the year: ");
-            int year = int.Parse(Console.ReadLine());
+            int year = int.Parse(Console.ReadLine().ToLower());
             Console.Write("Enter Price of the Car: ");
-            int price = int.Parse(Console.ReadLine());
+            decimal price = Convert.ToDecimal(Console.ReadLine());
 
-            Cars.Remove(new Car(model, make, year, price));
+            Cars.Remove(new Car(make, model, year, price));
         }
 
         public void AddCar()
@@ -149,7 +149,7 @@ namespace CarLotLab
             Console.Write("\nEnter Price of Car: ");
             decimal price = Convert.ToDecimal(Console.ReadLine());
 
-            Cars.Add(new Car(model, make, year, price));
+            Cars.Add(new Car(make, model, year, price));
 
         }
 
