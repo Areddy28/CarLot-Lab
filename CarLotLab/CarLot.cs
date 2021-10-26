@@ -32,8 +32,8 @@ namespace CarLotLab
             //Adding Cars to List: 
            
 
-            Console.WriteLine("Welcome to Grant Chirpus' Used Car Emproium!\n");
-            Console.WriteLine("What woould you like to do 1. Add car 2. View Cars 3. Quit");
+            //Console.WriteLine("Welcome to Grant Chirpus' Used Car Emproium!\n");
+            //Console.WriteLine("What woould you like to do 1. Add car 2. View Cars 3. Quit");
 
             //string userSelection = Console.ReadLine();
             //switch (userSelection)
